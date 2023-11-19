@@ -1,0 +1,10 @@
+--- clib-package.c	2023-11-19 11:27:10.938011665 +0300
++++ clib-package_copy.c	2023-11-19 11:23:47.266898000 +0300
+@@ -657,6 +657,7 @@
+ #ifdef HAVE_PTHREADS
+       init_curl_share();
+       _debug("GET %s", json_url);
++      http_get_free(res);
+       res = http_get_shared(json_url, clib_package_curl_share);
+ #else
+       res = http_get(json_url);
